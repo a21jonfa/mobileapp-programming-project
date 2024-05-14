@@ -17,12 +17,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<RecyclerViewItem> items;
     private LayoutInflater layoutInflater;
-    private OnClickListener onClickListener;
+    //private OnClickListener onClickListener;
 
-    RecyclerViewAdapter(Context context, List<RecyclerViewItem> items, OnClickListener onClickListener) {
+    RecyclerViewAdapter(Context context, List<RecyclerViewItem> items) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
-        this.onClickListener = onClickListener;
+        //this.onClickListener = onClickListener;
     }
 
     @Override
@@ -41,22 +41,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return items.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
 
         ViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-            title = itemView.findViewById(R.id.title);
+//            itemView.setOnClickListener(this);
+            title = itemView.findViewById(R.id.id);
         }
 
-        @Override
-        public void onClick(View view) {
-            onClickListener.onClick(items.get(getAdapterPosition()));
-        }
+//        @Override
+//        public void onClick(View view) {
+//            onClickListener.onClick(items.get(getAdapterPosition()));
+//        }
     }
 
-    public interface OnClickListener {
-        void onClick(RecyclerViewItem item);
-    }
+//    public interface OnClickListener {
+//        void onClick(RecyclerViewItem item);
+//    }
 }
