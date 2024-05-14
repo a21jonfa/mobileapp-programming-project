@@ -21,4 +21,14 @@ public class OpenNightItem extends RecyclerViewItem{
         this.occasion = json.getString("occasion");
         this.times = json.getString("times");
     }
+    String getTheme() {
+        return theme;
+    }
+    String getOccasion() {
+        return occasion;
+    }
+    String getTimes() {
+        return times;
+    }
+
 }

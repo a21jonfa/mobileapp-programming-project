@@ -15,11 +15,11 @@ import com.example.project.RecyclerViewItem;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<RecyclerViewItem> items;
+    private List<OpenNightItem> items;
     private LayoutInflater layoutInflater;
     //private OnClickListener onClickListener;
 
-    RecyclerViewAdapter(Context context, List<RecyclerViewItem> items) {
+    RecyclerViewAdapter(Context context, List<OpenNightItem> items) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         //this.onClickListener = onClickListener;
@@ -34,6 +34,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.title.setText(items.get(position).getID());
+        holder.ocassion.setText(items.get(position).getOccasion());
+        holder.theme.setText(items.get(position).getTheme());
+        holder.times.setText(items.get(position).getTimes());
     }
 
     @Override
@@ -43,11 +46,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
+        TextView ocassion;
+        TextView theme;
+        TextView times;
 
         ViewHolder(View itemView) {
             super(itemView);
-//            itemView.setOnClickListener(this);
-            title = itemView.findViewById(R.id.id);
+//              itemView.setOnClickListener(this);
+                title = itemView.findViewById(R.id.id);
+                ocassion = itemView.findViewById(R.id.occasion);
+                theme = itemView.findViewById(R.id.theme);
+                times = itemView.findViewById(R.id.times);
         }
 
 //        @Override

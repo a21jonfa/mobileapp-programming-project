@@ -16,12 +16,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a21jonfa";
-    private final String JSON_FILE = "kb.json";
 
     RecyclerView view;
     private RecyclerViewAdapter adapter;
 
-    private ArrayList<RecyclerViewItem> recyclerViewItems;
+    private ArrayList<OpenNightItem> recyclerViewItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
