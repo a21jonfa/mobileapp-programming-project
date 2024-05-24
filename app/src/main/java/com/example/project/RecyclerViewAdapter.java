@@ -15,8 +15,8 @@ import com.example.project.RecyclerViewItem;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<OpenNightItem> items;
-    private LayoutInflater layoutInflater;
+    private final List<OpenNightItem> items;
+    private final LayoutInflater layoutInflater;
     //private OnClickListener onClickListener;
 
     RecyclerViewAdapter(Context context, List<OpenNightItem> items) {
