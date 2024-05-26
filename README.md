@@ -1,42 +1,61 @@
-
-# Rapport
-
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
-
+● Skiss/design-idé
+<img src="Skiss.png" width="40%" height="40%">
+Planen var att göra en enkel app med tider och teman över kårhusets verksamhet
+● Webbtjänst - JSON
+Datat som används är hämtat från Kårhuset boulogners facebook sida där de själv anonserar sina event.
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+"ID": "2024/01/24",
+"theme": "Beerpong",
+"type": "a21jonfa",
+"company": "",
+"occasion": "Pub",
+"category": "",
+"size": 0,
+"cost": 0,
+"times": "20:00-01:00"
+```
+Jag ändrade om datat lite för att passa min app bättre. Jag tog bort en del fält som jag inte behövde och la till några fält som jag behövde.
+där bland annat times var auxdata innan.
+Size, cost , company och category är fält som jag inte behöver för min app och är därför tomma.
+
+● Implementationsexempel  
+    * JsonReformater
+``` java
+public class JsonReformater {
+    public static String reformat(String json) {
+        json = json.replaceAll("name", "theme");
+        json = json.replaceAll("location", "occasion");
+        json = json.replaceAll("auxdata", "times");
+        return json;
     }
 }
+ ```
+Då de fält som fanns att använda sig av genom skolans vektyg var begränsade så valde jag att göra en egen klass för att ändra om json datan till något som passade min app bättre.
+
+    * AboutActivityn
+``` java
+public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        MenuItem item = menu.findItem(R.id.item);
+        item.setTitle("About");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.item) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 ```
-
-Bilder läggs i samma mapp som markdown-filen.
-
-![](android.png)
-
-Läs gärna:
-
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+Toolbar menyn var något jag valde att implementera som sätt att ta sig till about sidan. jag täönkte inte så mycket på det eå men det var en bra övning att göra en toolbar, då den i min mening är lite annorlunda det vi gjort tidigare
+    * MainActivity
+``` java
+● Reflektion
+Jag hade en tanke om att jag ville göra en liknande app tidigare och att få möjlighetten till det gjorde det mycket roligare stt hålla på med. 
+Till viss del så känner jag att ha stora komplicerade hjälp metoder ex. JsonTask tar det längre tid att förstå vad som händer och vad som behövs för att få det att fungera.
+Jag tykte om det, om något så könde man hur de uppgifter som vi gjort tidigare har hjälpt mig att förstå vad som behövdes för att få det att fungera.
