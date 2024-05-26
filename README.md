@@ -31,7 +31,6 @@ public class JsonReformater {
 }
  ```
 Då de fält som fanns att använda sig av genom skolans vektyg var begränsade så valde jag att göra en egen klass för att ändra om json datan till något som passade min app bättre.
-
     * AboutActivityn
 ``` java
 public boolean onCreateOptionsMenu(Menu menu) {
