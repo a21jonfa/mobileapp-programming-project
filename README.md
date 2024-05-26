@@ -53,8 +53,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
     }
 ```
 Toolbar menyn var något jag valde att implementera som sätt att ta sig till about sidan. jag täönkte inte så mycket på det eå men det var en bra övning att göra en toolbar, då den i min mening är lite annorlunda det vi gjort tidigare
-    * MainActivity
-``` java
+
 ● Reflektion
 Jag hade en tanke om att jag ville göra en liknande app tidigare och att få möjlighetten till det gjorde det mycket roligare stt hålla på med. 
 Till viss del så känner jag att ha stora komplicerade hjälp metoder ex. JsonTask tar det längre tid att förstå vad som händer och vad som behövs för att få det att fungera.
